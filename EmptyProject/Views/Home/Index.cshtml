@@ -1,0 +1,87 @@
+﻿@using EmptyProject.Models;
+@using EmptyProject.Services;
+@inject IServiceA _serviceA
+@inject IEmployeeService _empService;
+@model List<EmployeeViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+
+<h2>@ViewData["MyValue"]</h2>
+
+
+@{
+    ViewData["MyValue"] = "Updated Value from  view!";
+}
+
+<table>
+
+    @foreach(var  emp  in Model){
+    <tr>
+        <td>@emp.Id</td>
+        <td>@emp.Name</td>
+        <td>@emp.Salary ILS</td>
+
+
+    </tr>
+
+    }
+</table>
+
+ atallah@gmail.cim
+
+ <!-- Html  Comments-->
+
+ @* Single line*@
+
+@{
+    var x = 10;
+
+   
+    @:Atallah
+    <text>My Name @x </text>
+
+    //Single line
+    /*multile
+     * 
+     * 
+     * 
+     *  line */
+}
+
+@x +1  =@(x+1)
+
+<br />
+@_serviceA.GetMsg()
+
+<h2>@ViewData["MyValue"]</h2>
+
+@_empService.GetAll().Count()
+
+
+<br />
+
+@Html.ActionLink("Click  here (Action 2)","Action2",new {id=1})
+<br />
+@Url.ActionLink("Action2")
+<br />
+@Url.Action("Action2")
+
+
+@Html.TextArea("txtArea",new {style="height:100px" , @class="txt1"})
+
+
+<textarea    style="height:100px" class="txt1" id="txtArea1"></textarea> 
+
+
+<a  asp-action="Action2" asp-controller="Home" asp-route-x="1">Click Here</a>
+
+
+
+
+
+
